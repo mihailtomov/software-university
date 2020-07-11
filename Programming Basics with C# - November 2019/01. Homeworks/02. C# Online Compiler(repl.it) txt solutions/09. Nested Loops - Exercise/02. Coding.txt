@@ -1,0 +1,27 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    string number = Console.ReadLine();
+
+    for (int i = number.Length - 1; i >= 0; i--)
+    {
+      int current = int.Parse(number[i].ToString());
+
+      if (current == 0)
+      {
+        Console.WriteLine("ZERO");
+        continue;
+      }
+      
+      for (int j = 0; j < current; j++)
+      {
+        Console.Write((char)(current+33));
+      }
+
+      Console.WriteLine();
+    }
+  }
+}

@@ -1,0 +1,37 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    int n = int.Parse(Console.ReadLine());
+
+    int firstGroup = 0;
+    int secondGroup = 0;
+
+    for (int i = 0; i < n * 2; i++)
+    {
+        int num = int.Parse(Console.ReadLine());
+
+        if (i < n)
+        {
+          firstGroup += num;
+        }
+
+        if (i >= n)
+        {
+          secondGroup += num;
+        }
+    }
+    
+    if (firstGroup == secondGroup)
+    {
+      Console.WriteLine($"Yes, sum = {firstGroup}");
+    }
+
+    else
+    {
+      Console.WriteLine($"No, diff = {Math.Abs(firstGroup - secondGroup)}");
+    }
+  }
+}

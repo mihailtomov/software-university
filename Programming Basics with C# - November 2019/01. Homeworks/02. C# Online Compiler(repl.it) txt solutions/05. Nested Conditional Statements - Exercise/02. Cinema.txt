@@ -1,0 +1,31 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    string screenType = Console.ReadLine();
+    int rows = int.Parse(Console.ReadLine());
+    int columns = int.Parse(Console.ReadLine());
+
+    double fullHall = rows * columns;
+    double income = 0.0;
+
+    if (screenType == "Premiere")
+    {
+      income = fullHall * 12.00;
+    }
+
+    else if (screenType == "Normal")
+    {
+      income = fullHall * 7.50;
+    }
+
+    else if (screenType == "Discount")
+    {
+      income = fullHall * 5.00;
+    }
+
+    Console.WriteLine($"{income:F2}" + " leva");
+  }
+}

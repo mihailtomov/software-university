@@ -1,0 +1,23 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    double days = double.Parse(Console.ReadLine());
+    double count = double.Parse(Console.ReadLine());
+    double cakes = double.Parse(Console.ReadLine());
+    double waffles = double.Parse(Console.ReadLine());
+    double pancakes = double.Parse(Console.ReadLine());
+
+    double cakesNum = cakes * 45;
+    double wafflesNum = waffles * 5.80;
+    double pancakesNum = pancakes * 3.20;
+
+    double dayTotal = (cakesNum + wafflesNum + pancakesNum) * count;
+    double campaignTotal = dayTotal * days;
+    double pureProfit = campaignTotal - 0.125 * campaignTotal;
+    
+    Console.WriteLine("{0:F2}" , pureProfit);
+  }
+}

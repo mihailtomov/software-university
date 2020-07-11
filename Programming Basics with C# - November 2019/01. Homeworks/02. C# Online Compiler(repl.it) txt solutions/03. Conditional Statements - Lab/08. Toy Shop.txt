@@ -1,0 +1,42 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    double vacationCost = double.Parse(Console.ReadLine());
+    int puzzleCount = int.Parse(Console.ReadLine());
+    int dollCount = int.Parse(Console.ReadLine());
+    int bearCount = int.Parse(Console.ReadLine());
+    int minionCount = int.Parse(Console.ReadLine());
+    int truckCount = int.Parse(Console.ReadLine());
+
+    int totalCount = puzzleCount + dollCount + bearCount + minionCount + truckCount;
+
+    double puzzlePrice = 2.60 * puzzleCount;
+    double dollPrice = 3.00 * dollCount;
+    double bearPrice = 4.10 * bearCount;
+    double minionPrice = 8.20 * minionCount;
+    double truckPrice = 2.00 * truckCount;
+
+    double totalPrice = puzzlePrice + dollPrice + bearPrice + minionPrice + truckPrice;
+
+    double totalProfit = totalPrice - 0.1 * totalPrice;
+
+    if (totalCount >= 50)
+    {
+      totalProfit = totalProfit - (0.25 * totalProfit);
+    }
+    
+    double leftover = Math.Abs(totalProfit - vacationCost);
+
+    if (totalProfit >= vacationCost)
+    {
+      Console.WriteLine($"Yes! {leftover:F2} lv left.");
+    }
+    else
+    {
+      Console.WriteLine($"Not enough money! {leftover:F2} lv needed.");
+    }
+  }
+}

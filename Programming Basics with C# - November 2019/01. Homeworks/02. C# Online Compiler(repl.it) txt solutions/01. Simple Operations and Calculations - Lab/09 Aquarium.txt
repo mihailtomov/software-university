@@ -1,0 +1,19 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    double length = double.Parse(Console.ReadLine());
+    double width = double.Parse(Console.ReadLine());
+    double height = double.Parse(Console.ReadLine());
+    double percentNum = double.Parse(Console.ReadLine());
+
+    double volume = length * width * height;
+    double total = volume * 0.001;
+    double percent = percentNum * 0.01;
+    double totalNeeded = total * (1 - percent);
+
+    Console.WriteLine("{0:F3}", totalNeeded);
+  }
+}

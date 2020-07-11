@@ -1,0 +1,39 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    int n = int.Parse(Console.ReadLine());
+
+    string presentationName = Console.ReadLine();
+
+    double currentGradeTotal = 0;
+    double GradeTotal = 0;
+    double gradeCount = 0;
+
+    while (presentationName != "Finish")
+    {
+      for (int i = 0; i < n; i++)
+      {
+        double currentGrade = double.Parse(Console.ReadLine());
+        currentGradeTotal += currentGrade;
+        gradeCount++;
+      }
+
+      double currentAverageGrade = currentGradeTotal / n;
+
+      Console.WriteLine($"{presentationName} - {currentAverageGrade:f2}.");
+
+      GradeTotal += currentGradeTotal;
+      currentGradeTotal = 0;
+
+      presentationName = Console.ReadLine();
+    }
+
+    double totalAverageGrade = GradeTotal / gradeCount;
+    
+    Console.WriteLine($"Student's final assessment is {totalAverageGrade:f2}.");
+
+  }
+}

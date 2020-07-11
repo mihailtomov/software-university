@@ -1,0 +1,41 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) 
+  {
+     int cakeWidth = int.Parse(Console.ReadLine());
+     int cakeLength = int.Parse(Console.ReadLine());
+
+     int cakeCount = 0;
+     int totalCake = cakeWidth * cakeLength;
+     
+     while (totalCake > cakeCount)
+     {
+        string command = Console.ReadLine();
+        if (command == "STOP")
+        {
+          if (totalCake > cakeCount)
+          {
+          Console.WriteLine($"{totalCake - cakeCount} pieces are left.");
+          }
+
+          else
+          {
+          Console.WriteLine($"No more cake left! You need {cakeCount - totalCake} pieces more.");
+          }
+
+          break;
+        }
+
+        else 
+        {
+          cakeCount += int.Parse(command);
+          if (cakeCount > totalCake)
+          {
+            Console.WriteLine($"No more cake left! You need {cakeCount - totalCake} pieces more.");
+          }
+        }
+     }
+
+  }
+}

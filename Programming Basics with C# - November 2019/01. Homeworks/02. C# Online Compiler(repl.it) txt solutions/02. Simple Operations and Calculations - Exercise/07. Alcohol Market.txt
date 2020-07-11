@@ -1,0 +1,21 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    double bgnWhiskey = double.Parse(Console.ReadLine());
+    double beerLitres = double.Parse(Console.ReadLine());
+    double wineLitres = double.Parse(Console.ReadLine());
+    double rakiaLitres = double.Parse(Console.ReadLine());
+    double whiskeyLitres = double.Parse(Console.ReadLine());
+
+    double rakiaCost = bgnWhiskey / 2;
+    double wineCost = rakiaCost - 0.4 * rakiaCost;
+    double beerCost = rakiaCost - 0.8 * rakiaCost;
+
+    double result = (bgnWhiskey * whiskeyLitres) + (beerLitres * beerCost) + (wineLitres * wineCost) + (rakiaLitres * rakiaCost);
+
+    Console.WriteLine("{0:F2}" , result);
+  }
+}

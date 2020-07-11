@@ -1,0 +1,20 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    double tables = double.Parse(Console.ReadLine());
+    double lengthTables = double.Parse(Console.ReadLine());
+    double widthTables = double.Parse(Console.ReadLine());
+
+    double tableArea = tables * (lengthTables + 2 * 0.30) * (widthTables + 2 * 0.30);
+    double squareArea = tables * (lengthTables / 2) * (lengthTables / 2);
+
+    double usdCost = tableArea * 7 + squareArea * 9;
+    double bgnCost = usdCost * 1.85;
+
+    Console.WriteLine($"{usdCost:F2}" + " USD");
+    Console.WriteLine($"{bgnCost:F2}" + " BGN");
+  }
+}

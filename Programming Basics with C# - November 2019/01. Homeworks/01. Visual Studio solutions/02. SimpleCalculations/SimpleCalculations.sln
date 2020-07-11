@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Square-Area", "Square-Area\Square-Area.csproj", "{B2C216B6-D07B-46A0-BEB6-B51AA417C336}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inches-to-Centimeters", "Inches-to-Centimeters\Inches-to-Centimeters.csproj", "{2D0EE6ED-79FA-4ABE-9AD7-714FDE0469D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greeting", "Greeting\Greeting.csproj", "{C3139F93-4F20-478C-B0D1-04A5C2EFFC9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concatenate-Data", "Concatenate-Data\Concatenate-Data.csproj", "{2F2A69FD-A027-430A-B698-4D2F2D7C1F86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trapezoid-Area", "Test\Trapezoid-Area.csproj", "{E4ED3A8C-3A5E-4752-8144-EEE94632DADB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Circle Area and Perimeter", "06. Circle Area and Perimeter\06. Circle Area and Perimeter.csproj", "{D60D2BAB-2626-4D07-9B3F-0B90359D5579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. 2D Rectangle Area", "07. 2D Rectangle Area\07. 2D Rectangle Area.csproj", "{7449FB7B-3D0D-406B-984C-7D1BD1A4A21B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2C216B6-D07B-46A0-BEB6-B51AA417C336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C216B6-D07B-46A0-BEB6-B51AA417C336}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C216B6-D07B-46A0-BEB6-B51AA417C336}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C216B6-D07B-46A0-BEB6-B51AA417C336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D0EE6ED-79FA-4ABE-9AD7-714FDE0469D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D0EE6ED-79FA-4ABE-9AD7-714FDE0469D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D0EE6ED-79FA-4ABE-9AD7-714FDE0469D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D0EE6ED-79FA-4ABE-9AD7-714FDE0469D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3139F93-4F20-478C-B0D1-04A5C2EFFC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3139F93-4F20-478C-B0D1-04A5C2EFFC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3139F93-4F20-478C-B0D1-04A5C2EFFC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3139F93-4F20-478C-B0D1-04A5C2EFFC9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F2A69FD-A027-430A-B698-4D2F2D7C1F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F2A69FD-A027-430A-B698-4D2F2D7C1F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F2A69FD-A027-430A-B698-4D2F2D7C1F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F2A69FD-A027-430A-B698-4D2F2D7C1F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4ED3A8C-3A5E-4752-8144-EEE94632DADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4ED3A8C-3A5E-4752-8144-EEE94632DADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4ED3A8C-3A5E-4752-8144-EEE94632DADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4ED3A8C-3A5E-4752-8144-EEE94632DADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60D2BAB-2626-4D07-9B3F-0B90359D5579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60D2BAB-2626-4D07-9B3F-0B90359D5579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60D2BAB-2626-4D07-9B3F-0B90359D5579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60D2BAB-2626-4D07-9B3F-0B90359D5579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7449FB7B-3D0D-406B-984C-7D1BD1A4A21B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7449FB7B-3D0D-406B-984C-7D1BD1A4A21B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7449FB7B-3D0D-406B-984C-7D1BD1A4A21B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7449FB7B-3D0D-406B-984C-7D1BD1A4A21B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B438A9E-0DC9-4330-9CD5-9011202D41DC}
+	EndGlobalSection
+EndGlobal

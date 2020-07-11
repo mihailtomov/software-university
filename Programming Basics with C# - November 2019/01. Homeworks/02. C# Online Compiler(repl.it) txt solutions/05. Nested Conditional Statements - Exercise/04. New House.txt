@@ -1,0 +1,67 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    string flowerType = Console.ReadLine();
+    int flowerCount = int.Parse(Console.ReadLine());
+    int budget = int.Parse(Console.ReadLine());
+
+    double rosesCost = flowerCount * 5;
+    double dahliasCost = flowerCount * 3.80;
+    double tulipsCost = flowerCount * 2.80;
+    double narcissusCost = flowerCount * 3;
+    double gladiolusCost = flowerCount * 2.50;
+
+    double totalCost = 0.0;
+
+     if (flowerType == "Roses")
+    {
+      if (flowerCount > 80)
+      rosesCost = rosesCost - 0.10 * rosesCost;
+      totalCost = rosesCost;
+    }
+
+     if (flowerType == "Dahlias")
+    {
+      if (flowerCount > 90)
+      dahliasCost = dahliasCost - 0.15 * dahliasCost;
+      totalCost = dahliasCost;
+    }
+
+     if (flowerType == "Tulips")
+    {
+      if (flowerCount > 80)
+      tulipsCost = tulipsCost - 0.15 * tulipsCost;
+      totalCost = tulipsCost;
+    }
+
+     if (flowerType == "Narcissus")
+    {
+      if (flowerCount < 120)
+      narcissusCost = narcissusCost + 0.15 * narcissusCost;
+      totalCost = narcissusCost;
+    }
+
+     if (flowerType == "Gladiolus")
+    {
+      if (flowerCount < 80)
+      gladiolusCost = gladiolusCost + 0.20 * gladiolusCost;
+      totalCost = gladiolusCost;
+    }
+
+    double leftOver = budget - totalCost;
+    double notEnough = totalCost - budget;
+
+     if (budget > totalCost)
+     {
+       Console.WriteLine($"Hey, you have a great garden with {flowerCount} {flowerType} and {leftOver:F2} leva left.");
+     }
+
+     else
+     {
+       Console.WriteLine($"Not enough money, you need {notEnough:F2} leva more.");
+     }
+  }
+}

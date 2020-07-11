@@ -1,0 +1,28 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+     int n = int.Parse(Console.ReadLine());
+     int max = int.MinValue;
+     int min = int.MaxValue;
+
+     for (int i = 0; i < n; i++)
+     {
+       int newNum = int.Parse(Console.ReadLine());
+       if (newNum > max)
+       {
+         max = newNum;
+       }
+
+       if (newNum < min)
+       {
+         min = newNum;
+       }
+     }
+
+     Console.WriteLine($"Max number: {max}");
+     Console.WriteLine($"Min number: {min}");
+  }
+}

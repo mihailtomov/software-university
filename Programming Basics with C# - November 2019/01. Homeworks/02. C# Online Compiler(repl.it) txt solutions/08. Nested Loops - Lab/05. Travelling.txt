@@ -1,0 +1,24 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    string destinationName = Console.ReadLine();
+
+    while (destinationName != "End")
+    {
+      double minimalBudget = double.Parse(Console.ReadLine());
+      double savedMoney = 0;
+      
+      while (savedMoney < minimalBudget)
+      {
+        double workMoney = double.Parse(Console.ReadLine());
+        savedMoney += workMoney;
+      }
+
+      Console.WriteLine($"Going to {destinationName}!");
+      destinationName = Console.ReadLine();
+    }
+  }
+}

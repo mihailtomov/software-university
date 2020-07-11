@@ -1,0 +1,43 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    string figureType = Console.ReadLine();
+    
+    if (figureType == "square")
+    {
+      double squareNum = double.Parse(Console.ReadLine());
+      double area = squareNum * squareNum;
+
+      Console.WriteLine("{0:F3}", area);
+    }
+
+    else if (figureType == "rectangle")
+    {
+      double a = double.Parse(Console.ReadLine());
+      double b = double.Parse(Console.ReadLine());
+      double area = (a * b);
+
+      Console.WriteLine("{0:F3}", area);
+    }
+
+    else if (figureType == "circle")
+    {
+      double r = double.Parse(Console.ReadLine());
+      double area = Math.PI * (r * r);
+
+      Console.WriteLine("{0:F3}", area);
+    }
+
+    else if (figureType == "triangle")
+    {
+      double side = double.Parse(Console.ReadLine());
+      double height = double.Parse(Console.ReadLine());
+      double area = side / 2 * height;
+      
+      Console.WriteLine("{0:F3}", area);
+    }
+  }
+}

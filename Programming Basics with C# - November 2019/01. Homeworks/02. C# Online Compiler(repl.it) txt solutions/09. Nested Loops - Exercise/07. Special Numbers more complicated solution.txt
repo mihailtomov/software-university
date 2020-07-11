@@ -1,0 +1,37 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    int n = int.Parse(Console.ReadLine());
+    
+    for (int i = 1111; i <= 9999; i++)
+    {
+      string fullNumber = i.ToString();
+
+      char num1 = fullNumber[0];
+      char num2 = fullNumber[1];
+      char num3 = fullNumber[2];
+      char num4 = fullNumber[3];
+
+      string numOne = num1.ToString();
+      string numTwo = num2.ToString();
+      string numThree = num3.ToString();
+      string numFour = num4.ToString();
+
+      int number1 = int.Parse(numOne);
+      int number2 = int.Parse(numTwo);
+      int number3 = int.Parse(numThree);
+      int number4 = int.Parse(numFour);
+    
+      if (number1 != 0 && number2 != 0 && number3 != 0 && number4 != 0)
+      {
+        if (n % number1 == 0 && n % number2 == 0 && n % number3 == 0 && n % number4 == 0)
+        {
+          Console.Write($"{i} ");
+        }
+      }
+    }
+  }
+}

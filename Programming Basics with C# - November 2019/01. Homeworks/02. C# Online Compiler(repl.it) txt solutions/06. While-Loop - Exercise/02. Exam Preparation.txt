@@ -1,0 +1,45 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    int badGradeThreshold = int.Parse(Console.ReadLine());
+    double averageScore = 0.0;
+    int problemsNum = 0;
+    int badGradeCount = 0;
+    string lastProblem = "";
+    bool isFailed = true;
+
+    while (badGradeCount < badGradeThreshold)
+    {
+      string exerciseName = Console.ReadLine();
+
+      if (exerciseName == "Enough")
+      {
+         isFailed = false;
+         break;
+      }
+
+      int exerciseGrade = int.Parse(Console.ReadLine());
+      problemsNum++;
+      averageScore += exerciseGrade;
+      lastProblem = exerciseName;
+
+      if (exerciseGrade <= 4)
+      {
+        badGradeCount++;
+      }
+    }
+      if (isFailed)
+      {
+       Console.WriteLine($"You need a break, {badGradeThreshold} poor grades.");
+      }
+      else
+      {
+         Console.WriteLine($"Average score: {averageScore / problemsNum:F2}");
+         Console.WriteLine($"Number of problems: {problemsNum}");
+         Console.WriteLine($"Last problem: {lastProblem}");
+      }
+  }
+}

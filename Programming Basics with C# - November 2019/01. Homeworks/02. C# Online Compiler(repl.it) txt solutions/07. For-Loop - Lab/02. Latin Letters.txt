@@ -1,0 +1,12 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+     for (char i = (char)97; i <= 122; i++)
+     {
+       Console.WriteLine(i);
+     }
+  }
+}

@@ -1,0 +1,36 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    int num1 = int.Parse(Console.ReadLine());
+    int num2 = int.Parse(Console.ReadLine());
+    int magicNumber = int.Parse(Console.ReadLine());
+
+    int totalCombinations = 0;
+    bool isMagicNumber = false;
+
+    for (int i = num1; i <= num2; i++)
+    {
+      for (int j = num1; j <= num2; j++)
+      {
+        totalCombinations++;
+        if (i + j == magicNumber)
+        {
+          isMagicNumber = true;
+          Console.WriteLine($"Combination N:{totalCombinations} ({i} + {j} = {magicNumber})");
+          break;
+        }
+      }
+        if (isMagicNumber)
+        {
+          break;
+        }
+    }
+        if (!isMagicNumber)
+        {
+          Console.WriteLine($"{totalCombinations} combinations - neither equals {magicNumber}");
+        }
+  }
+}

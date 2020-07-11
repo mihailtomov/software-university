@@ -1,0 +1,15 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    double dogsCount = double.Parse(Console.ReadLine());
+    double restCount = double.Parse(Console.ReadLine());
+    double dogFood = dogsCount * 2.50;
+    double restFood = restCount * 4.00;
+    double result = dogFood + restFood;
+
+    Console.WriteLine("{0:F2} lv." , result);
+  }
+}

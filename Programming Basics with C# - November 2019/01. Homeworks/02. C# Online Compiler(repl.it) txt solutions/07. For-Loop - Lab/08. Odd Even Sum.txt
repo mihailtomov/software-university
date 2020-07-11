@@ -1,0 +1,39 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    int n = int.Parse(Console.ReadLine());
+
+    int evenGroup = 0;
+    int oddGroup = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        int num = int.Parse(Console.ReadLine());
+
+        if (i % 2 == 0)
+        {
+          evenGroup += num;
+        }
+
+        else
+        {
+          oddGroup += num;
+        }
+    }
+    
+    if (evenGroup == oddGroup)
+    {
+      Console.WriteLine("Yes");
+      Console.WriteLine($"Sum = {evenGroup}");
+    }
+
+    else
+    {
+      Console.WriteLine("No");   
+      Console.WriteLine($"Diff = {Math.Abs(evenGroup - oddGroup)}");
+    }
+  }
+}

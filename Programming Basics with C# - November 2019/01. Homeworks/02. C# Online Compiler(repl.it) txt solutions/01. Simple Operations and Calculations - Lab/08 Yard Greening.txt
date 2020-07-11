@@ -1,0 +1,17 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    double squareMeters = double.Parse(Console.ReadLine());
+    double costPer = squareMeters * 7.61;
+    double discount = 0.18 * costPer;
+    double finalPrice = costPer - discount;
+
+    Console.Write("The final price is: " + "{0:F2}", finalPrice);
+    Console.WriteLine(" lv.");
+    Console.Write("The discount is: " + "{0:F2}", discount);
+    Console.Write(" lv.");
+  }
+}
