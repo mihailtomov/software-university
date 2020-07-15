@@ -1,0 +1,42 @@
+﻿using System;
+using System.Linq;
+
+namespace P01ListyIterator
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            string command = Console.ReadLine();
+            var listyIterator = new ListyIterator<string>();
+
+            string[] splitArgs = command.Split();
+
+            if (splitArgs.Length > 1)
+            {
+                string[] inputList = new string[splitArgs.Length - 1];
+                Array.Copy(splitArgs, 1, inputList, 0, splitArgs.Length - 1);
+
+                listyIterator = new ListyIterator<string>(inputList.ToList());
+            }
+
+            while (command != "END")
+            {
+                if (command.Contains("Move"))
+                {
+                    Console.WriteLine(listyIterator.Move());
+                }
+                if (command.Contains("HasNext"))
+                {
+                    Console.WriteLine(listyIterator.HasNext());
+                }
+                if (command.Contains("Print"))
+                {
+                    listyIterator.Print();
+                }
+
+                command = Console.ReadLine();
+            }
+        }
+    }
+}
