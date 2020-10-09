@@ -1,5 +1,6 @@
 function solve(data) {
-    let towns = [];
+    let filteredTowns = [];
+    let allTowns = [];
 
     data.forEach(row => {
         let [nameValue, productValue, priceValue] = row.split(' | ');
@@ -10,25 +11,33 @@ function solve(data) {
             price: Number(priceValue),
         };
 
-        if (!towns.some(t => t.product == productValue)){
-            towns.push(townObj);
+        let cloneObj = Object.assign({}, townObj);
+
+        allTowns.push(cloneObj);
+
+        if (filteredTowns.some(t => t.name == nameValue && t.product == productValue)) {
+            let filteredTown = filteredTowns.find(t => t.name == nameValue && t.product == productValue);
+            filteredTown.price = priceValue;
+
+            if (allTowns.some(t => t.price == priceValue && t.product == productValue)) {
+                let town = allTowns.find(t => t.price == priceValue && t.product == productValue);
+                filteredTown.name = town.name;
+            }
         };
 
-        towns.forEach(town => {
+        if (!filteredTowns.some(t => t.product == productValue)){
+            filteredTowns.push(townObj);
+        };
+
+        filteredTowns.forEach(town => {
             if (town.product == productValue && town.price > priceValue) {
                 town.name = nameValue;
                 town.price = priceValue;
             };
         });
-
-        if (towns.some(t => t.name == nameValue && t.product == productValue)) {
-            let town = towns.find(t => t.name == nameValue && t.product == productValue);
-            town.price = priceValue;
-        };
-
     });
 
-    towns.forEach(town => {
+    filteredTowns.forEach(town => {
         console.log(`${town.product} -> ${town.price} (${town.name})`);
     });
 }

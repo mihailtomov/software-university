@@ -1,44 +1,41 @@
 function solve(input) {
     let data = JSON.parse(input);
-
-    let result = '<table>\n<tr>';
-
+    let result = ['<table>'];
     let keys = Object.keys(data[0]);
-    
+    let keysHTML = '<tr>';
+
+    keys.forEach(key => {
+        keysHTML += `<th>${key}</th>`
+    });
+
+    keysHTML += '</tr>'
+
+    result.push(keysHTML);
+
     function escapeHtml(unsafe) {
         return unsafe
              .replace(/&/g, "&amp;")
              .replace(/</g, "&lt;")
              .replace(/>/g, "&gt;")
              .replace(/"/g, "&quot;")
-             .replace(/'/g, "&#039;");
      };
-
-    keys.forEach(key => {
-        result += '<th>';
-        result += escapeHtml(`${key}`);
-        result += '</th>';
-    });
-
-    result += '</tr>\n<tr>';
 
     data.forEach(obj => {
         let values = Object.values(obj);
 
+        let valuesHTML = '<tr>';          
         values.forEach(value => {
-            result += '<td>';
-            result += escapeHtml(`${value}`);
-            result += '</td>';
+            value = escapeHtml(`${value}`);
+            valuesHTML += `<td>${value}</td>`;
         });
+        valuesHTML += '</tr>';
 
-        if (data[data.length - 1] != obj) {
-            result += '</tr>\n<tr>';
-        } else {
-            result += '</tr>\n</table>';
-        }      
+        result.push(valuesHTML);
     });
 
-    console.log(result);
+    result.push('</table>')
+
+    return result.join('\n');
 }
 
 solve(['[{"Name":"Tomatoes & Chips","Price":2.35},{"Name":"J&B Chocolate","Price":0.96}]']);
