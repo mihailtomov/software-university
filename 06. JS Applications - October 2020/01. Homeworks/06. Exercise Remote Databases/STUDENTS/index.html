@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <p class="error">All fields are required!</p>
+    
+    <button id="load">Load Students</button>
+
+    <table id="results">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Faculty Number</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <br>
+
+    <form id="create-student">
+        <label>Id:</label>
+        <input type="number" id="student-id" placeholder="ID"><br>
+        <label>First Name:</label>
+        <input type="text" id="student-first" placeholder="First Name"><br>
+        <label>Last Name:</label>
+        <input type="text" id="student-last" placeholder="Last Name"><br>
+        <label>Faculty Number:</label>
+        <input type="text" id="student-faculty" placeholder="Faculty Number"><br>
+        <label>Grade:</label>
+        <input type="number" id="student-grade" placeholder="Grade"><br>
+        <button id="create">CREATE STUDENT</button>
+    </form>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

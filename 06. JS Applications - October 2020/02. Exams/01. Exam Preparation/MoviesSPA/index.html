@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Application 2020</title>
+    <link rel="icon" type="image/png" href="../static/favicon.ico">
+    <link href="../static/css/site.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="notifications" style="display: none;">
+        <p class="notification-message" id="errorBox"></p>
+    </section>
+    <section class="notifications" style="display: none;background-color:rgba(1, 131, 29, 0.541);">
+        <p class="notification-message" id="successBox"></p>
+    </section>
+
+    <div class="container" id="container">
+
+    </div>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="./node_modules/sammy/lib/min/sammy-0.7.6.min.js"></script>
+    <script src="./node_modules/sammy/lib/min/plugins/sammy.handlebars-0.7.6.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyC8tZVQeIfE0NiPGM6Dv4EyicrDyOhcweA",
+            authDomain: "multipurpose-app-67c67.firebaseapp.com",
+            databaseURL: "https://multipurpose-app-67c67.firebaseio.com",
+            projectId: "multipurpose-app-67c67",
+            storageBucket: "multipurpose-app-67c67.appspot.com",
+            messagingSenderId: "88769847241",
+            appId: "1:88769847241:web:c4678bf77b41303aed9218"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Authentication Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="./firebase-config.js"></script>
+</head>
+<body>
+    <h1>Authentication Test</h1>
+
+    <form>
+        <h3>Register Form</h3>
+        <p id="reg-message"></p>
+        <p id="reg-error">Password must be at least 6 characters long!</p>
+        <label for="">Email:</label>
+        <input type="email" id="reg-email" placeholder="Email">
+        <label for="">Password:</label>
+        <input type="password" id="reg-psw" placeholder="Password">
+        <button id="reg-btn">Register</button>
+    </form>
+
+    <form>
+        <h3>Login Form</h3>
+        <p id="login-message"></p>
+        <p id="login-error">Password must be at least 6 characters long!</p>
+        <label for="">Sign-in email:</label>
+        <input type="email" id="login-email" placeholder="Email">
+        <label for="">Sign-in password:</label>
+        <input type="password" id="login-psw" placeholder="Password">
+        <button id="login-btn">Login</button>
+    </form>
+
+    <script src="./auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <title>Contacts</title>
+</head>
+
+<body>
+  <h1>My contacts</h1>
+
+  <div id="contacts"></div>
+
+  <script type="text/x-handlebars-template" id="contacts-partial">
+      <div class="info">
+          <h2>Name: {{name}}</h2>
+          <button class="detailsBtn">Details</button>
+          <div class="details" id="{{id}}">
+              <p>Phone number: {{phoneNumber}}</p>
+              <p>Email: {{email}}</p>
+          </div>
+      </div>
+  </script>
+
+  <script type="text/x-handlebars-template" id="contacts-template">
+    {{#each contacts}}
+    <div class="contact card">
+      <div>
+          <i class="far fa-user-circle gravatar"></i>
+      </div>
+      {{> contactsPartial}}
+  </div>
+  {{/each}}
+  </script>
+
+  <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="./contacts.js"></script>
+  <script>
+    const partialSrc = document.getElementById('contacts-partial').innerHTML;
+    Handlebars.registerPartial('contactsPartial', partialSrc);
+    
+    const templateSrc = document.getElementById('contacts-template').innerHTML;
+    const template = Handlebars.compile(templateSrc);
+    const contactsHtml = template({ contacts });
+
+    const contactsElement = document.getElementById('contacts');
+
+    contactsElement.innerHTML = contactsHtml;
+    contactsElement.addEventListener('click', (e) => {
+      if (e.target.tagName == 'BUTTON') {
+
+        if (e.target.nextElementSibling.style.display == 'block') {
+          e.target.nextElementSibling.style.display = 'none';
+        } else {
+          e.target.nextElementSibling.style.display = 'block';
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
