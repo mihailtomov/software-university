@@ -1,0 +1,31 @@
+{{>header}}
+<section id="allSongsView">
+    <div class="background-spotify">
+        <div class="song-container">
+            <h1>All Songs</h1>
+            <a href="#/create">
+                <button type="button" class="btn-lg btn-block new-song-btn">Add a new song</button>
+            </a>
+            {{#each otherSongs}}
+            <div class="song">
+                <h5>Title: {{title}}</h5>
+                <h5>Artist: {{artist}}</h5>
+                <img class="cover" src="{{imageURL}}" />
+                <p>Likes: {{likes}}</p>
+                <a href="#/like/{{id}}"><button type="button" class="btn btn-primary mt-4">Like</button></a>
+            </div>
+            {{/each}}
+            {{#each userSongs}}
+            <div class="song">
+                <h5>Title: {{title}}</h5>
+                <h5>Artist: {{artist}}</h5>
+                <img class="cover" src="{{imageURL}}" />
+                <p>Likes: {{likes}}; Listened {{listenCount}} times</p>
+                <a href="#/delete/{{id}}"><button type="button" class="btn btn-danger mt-4">Remove</button></a>
+                <a href="#/listen/{{id}}"><button type="button" class="btn btn-success mt-4">Listen</button></a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{>footer}}

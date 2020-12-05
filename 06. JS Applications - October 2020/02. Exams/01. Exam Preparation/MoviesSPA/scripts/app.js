@@ -23,7 +23,6 @@ function router() {
                 const moviesData = res.docs.map(doc => { return { movieId: doc.id, ...doc.data() } });
 
                 if (moviesData.length > 0) {
-                    context.addedMovies = true;
                     context.movies = moviesData;
                 }
 
@@ -128,16 +127,14 @@ function router() {
                         likes,
                     })
                     .then(() => {
-                        logSuccessMessage('Liked successfully');
-
-                        context.redirect(`#/details/${movieId}`);
+                        logSuccessMessage('Liked successfully', context, `#/details/${movieId}`);
                     })
                     .catch(err => errorHandler(err));
             })
             .catch(err => errorHandler(err));
     })
-    
-    
+
+
     //SEMI-GET 
 
     this.get('#/logout', function (context) {
@@ -145,9 +142,7 @@ function router() {
             .then(() => {
                 localStorage.removeItem('userInfo');
 
-                logSuccessMessage('Successful logout');
-
-                context.redirect('#/login');
+                logSuccessMessage('Successful logout', context, '#/login');
             })
     })
 
@@ -158,9 +153,28 @@ function router() {
             .doc(movieId)
             .delete()
             .then(() => {
-                logSuccessMessage('Deleted successfully');
+                logSuccessMessage('Deleted successfully', context, '#/home');
+            })
+            .catch(err => errorHandler(err));
+    })
 
-                context.redirect('#/home');
+    this.get('#/search-movie', function (context) {
+        validateLoggedIn(context);
+
+        const { searchedMovie } = context.params;
+
+        db.collection('movies')
+            .get()
+            .then(res => {
+                const moviesData = res.docs.map(doc => { return { movieId: doc.id, ...doc.data() } });
+
+                if (moviesData.length > 0) {
+                    context.movies = moviesData.filter(m => m.title.toLowerCase().includes(searchedMovie.toLowerCase()));
+                }
+
+                loadHeaderAndFooter(context).then(function () {
+                    this.partial('../templates/home.hbs');
+                })
             })
             .catch(err => errorHandler(err));
     })
@@ -181,9 +195,7 @@ function router() {
 
                     localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-                    logSuccessMessage('Successful registration!');
-
-                    context.redirect('#/home');
+                    logSuccessMessage('Successful registration!', context, '#/home');
                 })
                 .catch(err => logErrorMessage(err.message));
         } else {
@@ -205,13 +217,10 @@ function router() {
 
                 localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-                logSuccessMessage('Login successful.');
-
-                context.redirect('#/home');
+                logSuccessMessage('Login successful.', context, '#/home');
             })
             .catch(err => logErrorMessage(err.message));
     })
-
 
     this.post('#/create-movie', function (context) {
         const { uid } = getUserData();
@@ -228,9 +237,7 @@ function router() {
                     likes: [],
                 })
                 .then(() => {
-                    logSuccessMessage('Created successfully!');
-
-                    context.redirect('#/home');
+                    logSuccessMessage('Created successfully!', context, '#/home');
                 })
                 .catch(err => errorHandler(err));
         } else {
@@ -252,9 +259,7 @@ function router() {
                     imageUrl,
                 })
                 .then(() => {
-                    logSuccessMessage('Eddited successfully');
-
-                    context.redirect(`#/details/${movieId}`);
+                    logSuccessMessage('Eddited successfully', context, `#/details/${movieId}`);
                 })
                 .catch(err => errorHandler(err));
         } else {
@@ -275,46 +280,52 @@ function validateLoggedIn(context) {
         const userInfo = JSON.parse(localStorage['userInfo']);
 
         context.loggedIn = true;
-        context.email = userInfo.email; // or username, whatever the context bro
+        context.email = userInfo.email;
     } else {
         context.loggedIn = false;
     }
 }
 
 function getUserData() {
-    return JSON.parse(localStorage['userInfo']);
+    return localStorage['userInfo'] ? JSON.parse(localStorage['userInfo']) : '';
 }
 
 function getContextId(context) {
     return context.params.id;
 }
 
-function logSuccessMessage(message) {
+function logSuccessMessage(message, context, redirectPath) {
     const successBox = elements.successBox();
 
     successBox.textContent = message;
     successBox.parentElement.style.display = 'block';
 
-    timeoutMessage(successBox);
+    timeoutSuccessRedirect(context, redirectPath);
 }
 
 function logErrorMessage(message) {
     const errorBox = elements.errorBox();
-    
+
     errorBox.textContent = message;
     errorBox.parentElement.style.display = 'block';
 
-    timeoutMessage(errorBox);
+    timeoutErrorMessage(errorBox);
 }
 
-function timeoutMessage(element) {
+function timeoutErrorMessage(element) {
     setTimeout(() => {
         element.parentElement.style.display = 'none';
     }, 1000)
 }
 
+function timeoutSuccessRedirect(context, path) {
+    setTimeout(() => {
+        context.redirect(path);
+    }, 1000)
+}
+
 function errorHandler(err) {
-    alert(err);
+    console.log(err);
 }
 
 (() => {

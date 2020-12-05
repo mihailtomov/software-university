@@ -3,19 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Application 2020</title>
-    <link rel="icon" type="image/png" href="../static/favicon.ico">
-    <link href="../static/css/site.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/notifications.css">
+    <link rel="stylesheet" href="./styles/site.css">
 </head>
 
 <body>
-    
-
-    <div class="container" id="container">
-
+    <div id="notifications">
+        <div id="successBox" class="notification">
+            <span>Info</span>
+        </div>
+        <div id="errorBox" class="notification">
+            <span>Error</span>
+        </div>
     </div>
+
+    <div id="container"></div>
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
@@ -27,7 +32,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
 
     <script>
-        // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyC8tZVQeIfE0NiPGM6Dv4EyicrDyOhcweA",
             authDomain: "multipurpose-app-67c67.firebaseapp.com",
@@ -42,6 +46,7 @@
     </script>
 
     <script src="./scripts/app.js"></script>
+
 </body>
 
 </html>
