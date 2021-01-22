@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const querystring = require('querystring');
 const formidable = require('formidable');
 const breeds = require('../data/breeds');
 const cats = require('../data/cats');
@@ -41,6 +40,10 @@ module.exports = function (req, res) {
         let form = new formidable.IncomingForm();
 
         form.parse(req, function (err, field) {
+            if (err) {
+                errorHandler(res, 404, 'plain');
+            }
+
             const { breed } = field;
 
             fs.readFile('./data/breeds.json', (err, data) => {
@@ -125,10 +128,12 @@ module.exports = function (req, res) {
                 } else {
                     configureHeaders(res, 200, 'html');
                     let modifiedData = data.toString().replace('{{id}}', id);
+
                     modifiedData = modifiedData.replace(/{{name}}/g, catObj.name);
                     modifiedData = modifiedData.replace('{{description}}', catObj.description);
                     modifiedData = modifiedData.replace(/{{breed}}/g, catObj.breed);
                     modifiedData = modifiedData.replace('{{imgPath}}', `${path.join('./content/images/' + catObj.image)}`);
+
                     res.write(modifiedData);
                     res.end();
                 }
@@ -163,20 +168,23 @@ module.exports = function (req, res) {
                 catObj.description = description;
                 catObj.breed = breed;
                 catObj.image = fileName;
+
+                fs.readFile('./data/cats.json', (err, data) => {
+                    if (err) {
+                        errorHandler(res, 404, 'plain');
+                    } else {
+                        fs.writeFile('./data/cats.json', JSON.stringify(cats), err => {
+                            if (err) {
+                                errorHandler(res, 404, 'plain');
+                            }
+                            redirect(res, '/');
+                        });
+                    }
+                });
+            } else {
+                redirect(res, pathname);
             }
 
-            fs.readFile('./data/cats.json', (err, data) => {
-                if (err) {
-                    errorHandler(res, 404, 'plain');
-                } else {
-                    fs.writeFile('./data/cats.json', JSON.stringify(cats), err => {
-                        if (err) {
-                            errorHandler(res, 404, 'plain');
-                        }
-                        redirect(res, '/');
-                    });
-                }
-            });
         });
     } else if (pathname.includes('/cats-find-new-home') && req.method === 'POST') {
         const id = Number(pathname.split('/')[2]);

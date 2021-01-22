@@ -31,6 +31,7 @@ module.exports = function (req, res) {
                 }
             });
         } else {
+            
             fs.readFile(`./${pathname}`, 'utf8', function(err, data) {
                 if (err) {
                     errorHandler(res, 404, 'text/plain');

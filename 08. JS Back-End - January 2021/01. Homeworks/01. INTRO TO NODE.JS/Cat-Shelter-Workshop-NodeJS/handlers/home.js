@@ -16,20 +16,33 @@ module.exports = function (req, res) {
             } else {
                 configureHeaders(res, 200, 'html');
 
-                let modifiedCats = cats.map(cat => `<li>
-					<img src="${path.join('./content/images/' + cat.image)}" alt="${cat.name}">
-					<h3>${cat.name}</h3>
-					<p><span>Breed: </span>${cat.breed}</p>
-					<p><span>Description: </span>${cat.description}</p>
-					<ul class="buttons">
-						<li class="btn edit"><a href="/cats-edit/${cat.id}">Change Info</a></li>
-						<li class="btn delete"><a href="/cats-find-new-home/${cat.id}">New Home</a></li>
-					</ul>
-                </li>`);
-                
-                let modifiedData = data.toString().replace('{{cats}}', modifiedCats);
+                // let modifiedCats = cats.map(cat => `<li>
+                // 	<img src="${path.join('./content/images/' + cat.image)}" alt="${cat.name}">
+                // 	<h3>${cat.name}</h3>
+                // 	<p><span>Breed: </span>${cat.breed}</p>
+                // 	<p><span>Description: </span>${cat.description}</p>
+                // 	<ul class="buttons">
+                // 		<li class="btn edit"><a href="/cats-edit/${cat.id}">Change Info</a></li>
+                // 		<li class="btn delete"><a href="/cats-find-new-home/${cat.id}">New Home</a></li>
+                // 	</ul>
+                // </li>`);
 
-                res.write(modifiedData);           
+                // let modifiedData = data.toString().replace('{{cats}}', modifiedCats);
+
+                let catTemplate = `<li>
+				 	<img src="./content/images/{{image}}" alt="{{name}}">
+				 	<h3>{{name}}</h3>
+				 	<p><span>Breed: </span>{{breed}}</p>
+				 	<p><span>Description: </span>{{description}}</p>
+				 	<ul class="buttons">
+				 		<li class="btn edit"><a href="/cats-edit/{{id}}">Change Info</a></li>
+				 		<li class="btn delete"><a href="/cats-find-new-home/{{id}}">New Home</a></li>
+				 	</ul>
+                 </li>`;
+
+                let modifiedCats = cats.map(cat => addDataToTemplate(catTemplate, cat));
+                let modifiedData = data.toString().replace('{{cats}}', modifiedCats);
+                res.write(modifiedData);
                 res.end();
             }
         })
@@ -42,4 +55,18 @@ function configureHeaders(res, statusCode, type) {
     res.writeHead(statusCode, {
         'Content-Type': `text/${type}`
     });
+}
+
+function addDataToTemplate(text, data) {
+    
+    Object.entries(data).forEach(([key, value]) => {
+        const searchString = `{{${key}}}`;
+
+        if (text.includes(searchString)) {
+            const re = new RegExp(searchString, 'g');
+            text = text.replace(re, value);
+        }
+    });
+
+    return text;
 }
