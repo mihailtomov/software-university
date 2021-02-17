@@ -2,15 +2,29 @@
 
     {{#if hotels}}
     <div class="added-hotels">
+        {{#if loggedIn}}
 
         {{#each hotels}}
-        <a href="/hotel/details/{{_id}}" class="added-hotel">
+            <a href="/hotel/details/{{_id}}" class="added-hotel">
             <img src="{{imageUrl}}" alt="{{name}}"
                 class="picture-added-hotel">
             <h3>{{name}}</h3>
             <span>Free rooms: {{freeRooms}}</span>
         </a>
         {{/each}}
+
+        {{else}}
+
+        {{#each hotels}}
+            <a href="/auth/login" class="added-hotel">
+            <img src="{{imageUrl}}" alt="{{name}}"
+                class="picture-added-hotel">
+            <h3>{{name}}</h3>
+            <span>Free rooms: {{freeRooms}}</span>
+        </a>
+        {{/each}}
+
+        {{/if}}
 
     </div>
 

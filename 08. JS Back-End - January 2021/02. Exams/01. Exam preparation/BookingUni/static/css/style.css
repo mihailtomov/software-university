@@ -392,8 +392,6 @@ h3 {
 }
 
 .notification {
-    animation: fadeOut 1s forwards;
-    animation-delay: 2s;
     position: fixed;
     z-index: 10;
     top: 6rem;
@@ -410,14 +408,19 @@ h3 {
 
 .loadingBox {
     background: #7CB3E9;
+    display: none;
 }
 
 .infoBox {
     background: #393;
+    animation: fadeOut 1s forwards;
+    animation-delay: 3s;
 }
 
 .errorBox {
     background: #F50;
+    animation: fadeOut 1s forwards;
+    animation-delay: 3s;
 }
 
 .profile {

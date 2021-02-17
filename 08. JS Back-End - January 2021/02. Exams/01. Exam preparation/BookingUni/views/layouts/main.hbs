@@ -11,23 +11,22 @@
 
     <div id="container">
         <div>
-            {{#if loading}}
             <div class="notification loadingBox">
                 Loading …
             </div>
-            {{/if}}
 
             {{#if success}}
             <div class="notification infoBox">
                 <span>{{success.message}}</span>
             </div>
             {{/if}}
-            
+
             {{#if error}}
             <div class="notification errorBox">
-                <span>{{error.message}}</span>
+                    <span>{{error.message}}</span>
             </div>
             {{/if}}
+
         </div>
 
         {{#if isAuthenticated}}
@@ -60,6 +59,15 @@
         <footer>@SoftUni - JS Back-end - BookingUni 2020</footer>
     </div>
 
+    <script> 
+        document.onreadystatechange = function() { 
+            if (document.readyState !== 'complete') { 
+                document.querySelector('.loadingBox').style.display = 'block'; 
+            } else { 
+                document.querySelector('.loadingBox').style.display = 'none'; 
+            } 
+        }; 
+    </script> 
 </body>
 
 </html>

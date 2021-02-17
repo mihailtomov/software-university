@@ -10,18 +10,19 @@ module.exports = (app) => {
         extname: 'hbs',
         layoutsDir: path.join(__dirname, '../views/layouts'),
         defaultLayout: 'main',
-        helpers: {
-            isLoggedIn: function (loggedIn) {
-                return loggedIn;
-            }
-        }
+        partialsDir: path.join(__dirname, '../views/partials'),
+        // helpers: {
+        //     isLoggedIn: function (loggedIn) {
+        //         return loggedIn;
+        //     }
+        // }
     }));
 
     app.set('view engine', 'hbs');
 
     app.set('views', [
+        path.join(__dirname, '../views/course pages'),
         path.join(__dirname, '../views/home pages'),
-        path.join(__dirname, '../views/booking pages'),
         path.join(__dirname, '../views/user pages'),
     ]);
 

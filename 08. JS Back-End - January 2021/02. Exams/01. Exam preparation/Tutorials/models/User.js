@@ -1,25 +1,19 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
-    email: {
-        type: String,
-        unique: true,
-    },
     username: {
         type: String,
+        required: true,
         unique: true,
     },
     password: {
         type: String,
+        required: true,
     },
-    bookedHotels: [{
+    enrolledCourses: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Hotel',
+        ref: 'Course',
     }],
-    offeredHotels: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Hotel',
-    }]
 });
 
 const User = mongoose.model('User', userSchema);
