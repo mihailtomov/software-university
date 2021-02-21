@@ -7,5 +7,8 @@ const router = express.Router();
 
 router.use('/', expenseController);
 router.use('/auth', authController);
+router.get('*', (req, res) => {
+    res.status(404).render('notFound');
+});
 
 module.exports = router;

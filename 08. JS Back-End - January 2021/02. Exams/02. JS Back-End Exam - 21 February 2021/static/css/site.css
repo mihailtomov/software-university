@@ -436,6 +436,12 @@ img.sad-face {
     text-align: center;
 }
 
+.notifications p.notification-success {
+    color: #119e23;
+    text-decoration: underline;
+    text-align: center;
+}
+
 footer {
     padding: 1%;
     background-color: #234465;

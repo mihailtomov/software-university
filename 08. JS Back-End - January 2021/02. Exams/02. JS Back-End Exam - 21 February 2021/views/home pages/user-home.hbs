@@ -1,18 +1,31 @@
 <main>
+    {{#if error}}
+    <section class="notifications">
+        <p class="notification-message">{{error.message}}</p>
+    </section>
+    {{/if}}
+
+    {{#if success}}
+    <section class="notifications" style="background-color: aquamarine;">
+        <p class="notification-success">{{success.message}}</p>
+    </section>
+    {{/if}}
 
     <section class="actions">
-        <form action="">
+        <form action="/expense/refill" method="POST">
             <h2>Salary time? Refill your account amount.</h2>
-            <input type="text" id="refill-amount">
+            <input type="text" name="amount" id="refill-amount">
             <button type="submit">Refill</button>
         </form>
         <div>
             <h2>New expense comming up?</h2>
-            <a href="#">Add it now</a>
+            <a href="/expense/create">Add it now</a>
         </div>
     </section>
 
     <hr class="separator">
+
+    {{#if expenses}}
 
     <table class="expenses">
         <thead>
@@ -25,67 +38,17 @@
 
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <p>Shoes</p>
-                    <div class="report">
-                        <a href="#">Report</a>
-                    </div>
-                </td>
-                <td>
-                    <img src="/images/amount.png" alt="">
-                    <p>лв 123.00</p>
-                </td>
-                <td>
-                    <img src="/images/category.png" alt="">
-                    <p>Other</p>
-                </td>
-                <td>
-                    <img src="/images/hastag.png" alt="">
-                    <p>I fucked up...</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Car supplies</p>
-                    <div class="report">
-                        <a href="#">Report</a>
-                    </div>
-                </td>
-                <td>
-                    <img src="/images/amount.png" alt="">
-                    <p>лв <span>123.00</span></p>
-                </td>
-                <td>
-                    <img src="/images/category.png" alt="">
-                    <p>Car</p>
-                </td>
-                <td>
-                    <img src="/images/hastag.png" alt="">
-                    <p>Regular car stuff....</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Shoes</p>
-                </td>
-                <td>
-                    <img src="/images/amount.png" alt="">
-                    <p>лв 123.00</p>
-                </td>
-                <td>
-                    <img src="/images/category.png" alt="">
-                    <p>Other</p>
-                </td>
-                <td>
-                    <img src="/images/hastag.png" alt="">
-                    <p>Gift to my girl...</p>
-                </td>
-            </tr>
+
+            {{#each expenses}}
+                {{>expense}}
+            {{/each}}
+           
 
         </tbody>
     </table>
 
+    {{else}}
     <h1 class="no-expenses">No expenses founded so far.. <span>GOOD JOB!</span></h1>
+    {{/if}}
 
 </main>
