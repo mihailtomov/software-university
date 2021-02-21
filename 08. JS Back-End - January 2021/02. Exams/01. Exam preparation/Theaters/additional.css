@@ -1,0 +1,28 @@
+/* loading success and error css below notification */
+.loadingBox {
+    background: #7CB3E9;
+    display: none;
+}
+
+.infoBox {
+    background: #393;
+    animation: fadeOut 1s forwards;
+    animation-delay: 3s;
+}
+
+.errorBox {
+    background: #F50;
+    animation: fadeOut 1s forwards;
+    animation-delay: 3s;
+}
+
+/* fadeout animation to insert at bottom */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

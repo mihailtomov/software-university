@@ -1,0 +1,13 @@
+<main>
+    <h1>Welcome to SoftUni Wiki!</h1>
+    <section id="featured">
+        <h2>Latests articles</h2>
+
+        {{#each articles}}
+            {{>topArticle}}
+        {{else}}
+        <p>No Articles yet...</p>
+        {{/each}}
+        
+    </section>
+</main>

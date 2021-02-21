@@ -1,0 +1,6 @@
+http://localhost:5000/theater/create
+http://localhost:5000/theater/details/602e693158fde4141404b1d3
+http://localhost:5000/theater/edit/602e693158fde4141404b1d3
+http://localhost:5000/theater/like/602e693158fde4141404b1d3
+http://localhost:5000/theater/delete/602e693158fde4141404b1d3
+http://localhost:5000/auth/logout

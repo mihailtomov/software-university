@@ -8,19 +8,11 @@ router.get('/', async (req, res) => {
 
     try {
         if (!loggedIn) {
-            let courses;
-
-            req.query.search ? 
-            courses = await courseService.getAllGuest(req.query) : 
-            courses = await courseService.getAllGuest();
+            const courses = await courseService.getAllGuest();
 
             res.render('guest-home', { courses });
         } else {
-            let courses;
-
-            req.query.search ? 
-            courses = await courseService.getAllAuth(req.query) : 
-            courses = await courseService.getAllAuth();
+            let courses = await courseService.getAllAuth(req.query.search);
 
             courses = courses.map(function (course) {
                 const [dayOfWeek, month, day, , time] = course.createdAt.toString().split(' ');

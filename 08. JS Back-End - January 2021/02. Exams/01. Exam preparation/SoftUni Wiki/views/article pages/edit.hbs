@@ -1,0 +1,21 @@
+<main>
+    <h1>Welcome to SoftUni Wiki!</h1>
+    {{#if error}}
+    <section id="notifications">
+        <p>{{error.message}}</p>
+    </section>
+    {{/if}}
+    <section>
+        <h2>Edit article
+        </h2>
+        <div class="spacer">
+            <form method="POST">
+                <label>Article title</label>
+                <h3>{{article.title}}</h3>
+                <label>Content</label>
+                <textarea name="description">{{article.description}}</textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+</main>

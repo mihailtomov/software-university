@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Back-End Exam</title>
+</head>
+
+<body>
+    <header>
+        
+        <div>
+            <div class="notification loadingBox">
+                Loading …
+            </div>
+
+            {{#if success}}
+            <div class="notification infoBox">
+                <span>{{success.message}}</span>
+            </div>
+            {{/if}}
+
+            {{#if error}}
+            <div class="notification errorBox">
+                    <span>{{error.message}}</span>
+            </div>
+            {{/if}}
+
+        </div>
+
+        {{#if isAuthenticated}}
+        <nav>
+            <ul>
+                <li>
+                    <a href="/shoe/create">Create new offer</a>
+                </li>
+                <li>
+                    <a href="/user/profile">
+                        <img src="/sneakers.png" alt="">
+                    </a>
+                </li>
+                <li>Welcome, {{email}} |
+                    <a href="/auth/logout">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        {{else}}
+        <nav>
+            <ul>
+                <li class="site-logo">Shoe</li>
+                <li>
+                    <a href="/">
+                        <img src="/sneakers.png" alt="">
+                    </a>
+                </li>
+                <li class="site-logo">Shelf</li>
+            </ul>
+        </nav>
+        {{/if}}
+    </header>
+
+    {{{body}}}
+
+    <footer>
+        <p><a href="https://softuni.bg">Software University</a> - JS Back End @ 2020</p>
+    </footer>
+</body>
+
+</html>

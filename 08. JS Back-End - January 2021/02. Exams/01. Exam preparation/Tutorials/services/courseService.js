@@ -2,24 +2,16 @@ const Course = require('../models/Course');
 const User = require('../models/User');
 const { isLength, isValidProtocol } = require('../helpers/validators');
 
-const getAllGuest = async (query) => {
-    if (query) {
-        const searchPattern = new RegExp(query.search.toLowerCase(), 'i');
-
-        return await Course.find({ title: { $regex: searchPattern } }).sort({ usersEnrolled: -1 }).lean();
-    } else {
-        return await Course.find().sort({ usersEnrolled: -1 }).lean();
-    }
+const getAllGuest = async () => {
+    return await Course.find().sort({ usersEnrolled: -1 }).lean();
 }
 
-const getAllAuth = async (query) => {
-    if (query) {
-        const searchPattern = new RegExp(query.search.toLowerCase(), 'i');
+const getAllAuth = async (query = '') => {
+    query = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-        return await Course.find({ title: { $regex: searchPattern } }).sort({ createdAt: 1 }).lean();
-    } else {
-        return await Course.find().sort({ createdAt: 1 }).lean();
-    }
+    const searchPattern = new RegExp(query, 'i');
+
+    return await Course.find({ title: { $regex: searchPattern } }).sort({ createdAt: 1 }).lean();
 }
 
 const getOne = async (courseId) => {
