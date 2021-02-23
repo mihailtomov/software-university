@@ -1,4 +1,3 @@
-// TODO: Enter databaseName, choose PORT
 const config = {
     development: {
         PORT: 5000,

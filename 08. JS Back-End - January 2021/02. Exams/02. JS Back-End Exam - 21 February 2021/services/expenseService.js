@@ -11,9 +11,9 @@ const getOne = async (expenseId) => {
 
 const create = async (data, userId) => {
     data.total ? data.total = Number(data.total) : data.total = undefined;
-    if (data.category.includes('-')) {
+    if (data.category && data.category.includes('-')) {
         data.category = data.category.split('-').map(c => c[0].toUpperCase() + c.slice(1)).join(' ');
-    } else {
+    } else if (data.category && !data.category.includes('-')) {
         data.category = data.category[0].toUpperCase() + data.category.slice(1);
     }
     data.report == 'on' ? data.report = true : data.report = false;
@@ -30,7 +30,10 @@ const refill = async (userId, data) => {
     data.amount = Number(data.amount);
     if (data.amount < 0) throw { message: 'The account amount should be a positive number!' };
 
-    await User.findByIdAndUpdate(userId, data, { runValidators: true });
+    const user = await User.findById(userId);
+    user.amount += data.amount;
+
+    await user.save();
 };
 
 const remove = async (expenseId) => {
@@ -38,7 +41,7 @@ const remove = async (expenseId) => {
 };
 
 const getProfileInfo = async (userId) => {
-    await User.findById(userId).populate('expenses').lean();
+    return await User.findById(userId).select('amount expenses').populate('expenses').lean();
 }
 
 module.exports = {

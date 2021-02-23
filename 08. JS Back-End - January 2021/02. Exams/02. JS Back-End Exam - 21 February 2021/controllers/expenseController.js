@@ -17,8 +17,8 @@ router.get('/', async (req, res, next) => {
             if (error) {
                 res.render('user-home', { expenses, error });
                 req.session.destroy();
-            } else if(success){
-                res.render('user-home', {expenses, success});
+            } else if (success) {
+                res.render('user-home', { expenses, success });
                 req.session.destroy();
             } else {
                 res.render('user-home', { expenses });
@@ -97,11 +97,16 @@ router.post('/expense/refill', authenticated, async (req, res) => {
     }
 });
 
-router.get('/user/profile', async (req, res, next) => {
+router.get('/user/profile', authenticated, async (req, res, next) => {
     try {
         const userInfo = await expenseService.getProfileInfo(req.user._id);
 
-        console.log(userInfo);
+        const { expenses, amount } = userInfo;
+
+        const totalExpenses = expenses.reduce((a, b) => a + b.total, 0);
+        const totalMerchants = expenses.length;
+
+        res.render('profile', { totalExpenses, totalMerchants, availableAmount: amount });
     } catch (error) {
         next(error);
     }
