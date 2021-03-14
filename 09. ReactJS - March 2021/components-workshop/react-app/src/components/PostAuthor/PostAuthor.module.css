@@ -1,0 +1,13 @@
+.author-container {
+    /* border:1px solid red; */
+    height: auto;
+    text-align: right;
+    margin-bottom: 0.5%;
+}
+
+.author-container span {
+    text-decoration: underline;
+    text-align: right;
+    /* border:1px solid green; */
+    padding-right: 1%;
+}

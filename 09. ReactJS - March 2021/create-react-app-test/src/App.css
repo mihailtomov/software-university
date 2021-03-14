@@ -1,0 +1,17 @@
+body {
+  background-color: rgb(235, 222, 224);
+}
+
+.site-wrapper {
+  width: 1200px;
+  text-align: center;
+  margin: auto;
+}
+
+img {
+  margin: auto;
+}
+
+main {
+  margin: 90px;
+}

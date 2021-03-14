@@ -1,0 +1,119 @@
+body {
+    font-family: "Helvetica", sans-serif;
+    width: 960px;
+    margin: auto;
+    background: #F0F1F5;
+}
+
+header {
+    height: 22px;
+}
+
+header>nav {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+    top: -7px;
+}
+
+nav ul {
+    text-align: right;
+    display: inline-block;
+    padding-left: 419px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #F9690E;
+    padding-right: 12px;
+}
+
+nav>div>i {
+    color: #F9690E;
+    font-size: 25px;
+}
+
+nav>div>span {
+    position: relative;
+    top: -7px;
+    left: 4px;
+}
+
+nav>div {
+    display: inline-block;
+    color: #F9690E;
+}
+
+main>div {
+    background-image: url(./picture.jpg);
+    background-repeat: no-repeat;
+    height: 540px;
+    background-size: contain;
+    text-align: center;
+}
+
+main>article {
+    display: inline-block;
+    width: 217px;
+    height: 130px;
+    color: white;
+    background: #F9690E;
+    padding: 25px 50px 40px;
+}
+
+main>article>h3 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+main>article>p {
+    font-size: 13px;
+}
+
+main>div>h1 {
+    text-align: center;
+    padding: 198px 170px 20px;
+    color: white;
+}
+
+main>div>h1>span {
+    color: #F9690E;
+}
+
+main>div>button {
+    padding: 7px 13px;
+    background: #F9690E;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding-top: 9px;
+}
+
+main>div>button:hover {
+    background: white;
+    color: #F9690E;
+    cursor: pointer;
+}
+
+footer>p {
+    padding-top: 22px;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+footer>div {
+    display: inline-block;
+    padding-left: 387px;
+}
+
+footer>div>i {
+    padding-left: 20px;
+}

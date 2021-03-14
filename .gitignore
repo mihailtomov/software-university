@@ -358,3 +358,6 @@ MigrationBackup/
 *.rar
 *.tar
 *.zip
+
+# Custom
+*.json
