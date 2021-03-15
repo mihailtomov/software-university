@@ -1,11 +1,13 @@
 import style from './PostAuthor.module.css';
 
-const PostAuthor = () => {
+const PostAuthor = (
+    { author }
+) => {
     return (
         <div className={style['author-container']}>
             <span>
                 <small>Author:</small>
-                    Some Anonymous
+                    {author}
             </span>
         </div>
     )
